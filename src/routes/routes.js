@@ -2,9 +2,9 @@ import { createBrowserRouter } from 'react-router-dom';
 import Root from '../pages/root/Root';
 import Errorpage from '../pages/errorpage/Errorpage';
 import Homepage from '../pages/homepage/Homepage';
+import ServiceFeed from '../pages/others/ServiceFeed';
 import Signup from '../pages/form/Signup';
 import Login from '../pages/form/Login';
-import Services from '../pages/others/Services';
 import AddService from '../pages/shared/AddService';
 import MyReviews from '../pages/shared/MyReviews';
 import Blogs from '../pages/shared/Blogs';
@@ -27,8 +27,8 @@ const router = createBrowserRouter([
         element: <Homepage />,
       },
       {
-        path: '/services',
-        element: <Services />,
+        path: '/servicefeed',
+        element: <ServiceFeed />,
       },
       {
         path: '/servicedetails/:id',

@@ -9,27 +9,26 @@ function Services() {
   useEffect(() => {
     fetch('http://localhost:5000/services')
       .then((res) => res.json())
-      .then((json) => setServices(json.data))
-      .catch((error) => {
-        console.error(error);
-      });
+      .then((json) => setServices(json.data));
   }, []);
 
-  const truncate = (string, num) => {
-    return string?.length > num ? string.substr(0, num) + '...' : string;
+  const truncate = (string, number) => {
+    return string?.length > number ? string.substr(0, number) + '...' : string;
   };
+
   return (
-    <section className="bg-gray-100 text-gray-800">
+    <section className="-mb-16 bg-gray-100 text-gray-800">
       <div className="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">
         <div className="space-y-2 text-center">
-          <h2 className="text-3xl font-bold">Partem reprimique an pro</h2>
+          <h2 className="text-3xl font-bold">Explore our services</h2>
           <p className="font-serif text-sm text-gray-600">
             Qualisque erroribus usu at, duo te agam soluta mucius.
           </p>
         </div>
         <div className="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => {
-            const { desc, _id, img, price, title } = service;
+            console.log(service);
+            const { _id, desc, img, price, title } = service;
             return (
               <div
                 key={_id}
@@ -49,13 +48,18 @@ function Services() {
                   <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">
                     {title}
                   </h3>
-                  <span className="font-semibold italic text-sm text-gray-600">
+                  <span className="font-medium italic text-base text-gray-600">
                     ${price}
                   </span>
-                  <p>{truncate(desc, 100)}</p>
+                  <p className="font-normal  pb-4 text-sm">
+                    {truncate(desc, 100)}
+                  </p>
                   <Link to={`/servicedetails/${_id}`}>
-                    <button className="font-semibold italic px-4 py-2 rounded-md bg-pink-700 text-gray-100">
-                      View details
+                    <button
+                      type="button"
+                      className="px-4 py-2 font-semibold rounded bg-pink-600 text-gray-100"
+                    >
+                      View Details
                     </button>
                   </Link>
                 </div>
@@ -64,7 +68,7 @@ function Services() {
           })}
         </div>
         <div className="flex justify-center">
-          <Link to="/services">
+          <Link to="/servicefeed">
             <button
               type="button"
               className="px-6 py-3 text-sm rounded-md hover:underline bg-gray-50 text-gray-600"
