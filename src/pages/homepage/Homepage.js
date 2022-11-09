@@ -11,22 +11,22 @@ function Homepage() {
   return (
     <div className="space-y-8 md:space-y-16 dark:bg-gray-800 dark:text-gray-100">
       {/* banner */}
-      <Banner />
+      {/* <Banner /> */}
 
       {/* services */}
-      <Services />
+      {/* <Services /> */}
 
       {/* about */}
-      <About />
+      {/* <About /> */}
 
       {/* pricing */}
-      <Pricing />
+      {/* <Pricing /> */}
 
       {/* testimonial */}
-      <Testimonial />
+      {/* <Testimonial /> */}
 
       {/* call to action */}
-      <CallToAction />
+      {/* <CallToAction /> */}
     </div>
   );
 }
