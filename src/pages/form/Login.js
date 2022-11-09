@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthenticationContext } from '../context/Authentication';
 
 function Login() {
@@ -7,6 +7,9 @@ function Login() {
   const { login, googleSignin, githubSignin } = useContext(
     AuthenticationContext
   );
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
 
   const [error, setError] = useState('');
 
@@ -21,6 +24,7 @@ function Login() {
     login(email, password)
       .then((userCredential) => {
         const user = userCredential.user;
+        navigate(from, { replace: true });
         event.target.reset();
       })
       .catch((error) => {

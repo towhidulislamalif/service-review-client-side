@@ -34,11 +34,11 @@ function Navigation() {
               </Link>
               {user?.uid && (
                 <>
-                  <Link rel="noopener noreferrer" to="/services">
-                    Services
+                  <Link rel="noopener noreferrer" to="/addservice">
+                    Add Services
                   </Link>
-                  <Link rel="noopener noreferrer" to="/reviews">
-                    Reviews
+                  <Link rel="noopener noreferrer" to="/myreviews">
+                    My Reviews
                   </Link>
                 </>
               )}

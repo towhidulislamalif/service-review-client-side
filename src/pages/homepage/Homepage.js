@@ -14,19 +14,19 @@ function Homepage() {
       {/* <Banner /> */}
 
       {/* services */}
-      {/* <Services /> */}
+      <Services />
 
       {/* about */}
       {/* <About /> */}
 
       {/* pricing */}
-      {/* <Pricing /> */}
+      <Pricing />
 
       {/* testimonial */}
-      {/* <Testimonial /> */}
+      <Testimonial />
 
       {/* call to action */}
-      {/* <CallToAction /> */}
+      <CallToAction />
     </div>
   );
 }
