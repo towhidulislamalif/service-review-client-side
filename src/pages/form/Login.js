@@ -46,8 +46,8 @@ function Login() {
           .then((json) => {
             console.log(json);
             localStorage.setItem('token', json.token);
-            navigate(from, { replace: true });
           });
+        navigate(from, { replace: true });
         event.target.reset();
       })
       .catch((error) => {
