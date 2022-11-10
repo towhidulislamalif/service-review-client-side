@@ -2,7 +2,7 @@ import React from 'react';
 
 function Pricing() {
   return (
-    <section className="py-6 bg-gray-100 text-gray-800">
+    <section className=" py-12  text-gray-800">
       <div className="container p-4 mx-auto sm:p-10">
         <div className="mb-12 space-y-4 text-center">
           <h1 className="text-4xl font-semibold leading-tight">Pricing</h1>
@@ -14,9 +14,9 @@ function Pricing() {
         <div className="grid max-w-md grid-cols-1 gap-6 mx-auto auto-rows-fr lg:grid-cols-3 lg:max-w-full">
           <div className="flex flex-col overflow-hidden border-2 rounded-md border-gray-300">
             <div className="flex flex-col items-center justify-center px-2 py-8 space-y-4 bg-gray-100">
-              <p className="text-lg font-medium">Personal</p>
+              <p className="text-lg font-medium">Weekly Plan</p>
               <p className="text-5xl font-bold">
-                0€
+                $50
                 <span className="text-xl text-gray-600"> /mo</span>
               </p>
             </div>
@@ -81,9 +81,9 @@ function Pricing() {
           </div>
           <div className="flex flex-col overflow-hidden border-2 rounded-md border-pink-600">
             <div className="flex flex-col items-center justify-center px-2 py-8 space-y-4 bg-gray-100">
-              <p className="text-lg font-medium">Professional</p>
+              <p className="text-lg font-medium">Monthly Plan</p>
               <p className="text-5xl font-bold">
-                8€
+                $150
                 <span className="text-xl text-gray-600"> /mo</span>
               </p>
             </div>
@@ -148,10 +148,10 @@ function Pricing() {
           </div>
           <div className="flex flex-col overflow-hidden border-2 rounded-md border-gray-300">
             <div className="flex flex-col items-center justify-center px-2 py-8 space-y-4 bg-gray-100">
-              <p className="text-lg font-medium">Enterprise</p>
+              <p className="text-lg font-medium">Yearly Plan</p>
               <p className="text-5xl font-bold">
-                19€
-                <span className="text-xl text-gray-600"> /mo</span>
+                $250
+                <span className="text-xl text-gray-600"> /yr</span>
               </p>
             </div>
             <div className="flex flex-col items-center justify-center px-2 py-8 bg-gray-50">

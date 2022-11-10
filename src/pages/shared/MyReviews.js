@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import useTitle from '../../hooks/useTitle';
 import { AuthenticationContext } from '../context/Authentication';
@@ -38,13 +39,18 @@ function MyReviews() {
       })
       .catch((error) => toast.error(error.message));
   };
+  const navigate = useNavigate();
+  const editReview = (id) => {
+    navigate(`/editreview/${id}`);
+  };
 
   return (
     <>
       {myreviews.length > 0 ? (
         <div>
           {myreviews.map((myreview) => {
-            const { _id, message, photo, reviewer } = myreview;
+            const { _id, message, photo, reviewer, service_name } = myreview;
+            console.log(myreview);
             return (
               <div
                 key={_id}
@@ -76,7 +82,10 @@ function MyReviews() {
                   </div>
                 </div>
                 <div className="p-4 space-y-2 text-sm text-gray-600">
-                  <p>{message}</p>
+                  <p className="font-semibold italic text-lg text-gray-600">
+                    {service_name}
+                  </p>
+                  <p className="font-semibold text-base">{message}</p>
                 </div>
                 <div className="flex gap-4 text-sm py-4 divide-x">
                   <button
@@ -98,6 +107,7 @@ function MyReviews() {
                     <span>Remove</span>
                   </button>
                   <button
+                    onClick={() => editReview(_id)}
                     type="button"
                     className="flex items-center px-2 py-1 pl-0 space-x-1 font-medium italic text-sm bg-pink-600 text-gray-100"
                   >

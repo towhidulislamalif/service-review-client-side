@@ -30,7 +30,6 @@ function ServiceFeed() {
         <div className="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
           {servicefeed.map((service) => {
             const { _id, desc, img, price, title } = service;
-            console.log(service);
             return (
               <article key={_id} className="flex flex-col bg-gray-50">
                 <div

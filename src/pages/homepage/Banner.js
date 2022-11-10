@@ -2,28 +2,19 @@ import React from 'react';
 
 function Banner() {
   return (
-    <div className="p-6 py-12 dark:bg-rose-400 dark:text-gray-900">
-      <div className="container mx-auto">
-        <div className="flex flex-col lg:flex-row items-center justify-between">
-          <h2 className="text-center text-6xl tracking-tighter font-bold">
-            Up to
-            <br className="sm:hidden" />
-            50% Off
-          </h2>
-          <div className="space-x-2 text-center py-2 lg:py-0">
-            <span>Plus free shipping! Use code:</span>
-            <span className="font-bold text-lg">MAMBA</span>
-          </div>
-          <a
-            href="#"
-            rel="noreferrer noopener"
-            className="px-5 mt-4 lg:mt-0 py-3 rounded-md border block dark:bg-gray-50 dark:text-gray-900 dark:border-gray-400"
-          >
-            Shop Now
-          </a>
+    <section>
+      <div className="bg-gradient-to-tr from-gray-50 to-pink-600">
+        <div className="container flex flex-col items-center px-4 py-16 pb-24 mx-auto text-center lg:pb-56 md:py-32 md:px-10 lg:px-32 text-gray-900">
+          <h1 className="text-5xl font-bold leading-none sm:text-6xl xl:max-w-3xl text-gray-50">
+            GET TRAINED BE EMPOWERED BOOK A SESSION TODAY
+          </h1>
+          <p className="mt-6 mb-8 text-lg sm:mb-12 xl:max-w-3xl text-gray-50">
+            Cupiditate minima voluptate temporibus quia? Architecto beatae esse
+            ab amet vero eaque explicabo!
+          </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

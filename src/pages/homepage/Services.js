@@ -17,7 +17,7 @@ function Services() {
   };
 
   return (
-    <section className="-mb-16 bg-gray-100 text-gray-800">
+    <section className=" bg-gray-100 text-gray-800">
       <div className="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">
         <div className="space-y-2 text-center">
           <h2 className="text-3xl font-bold">Explore our services</h2>

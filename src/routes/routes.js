@@ -11,6 +11,7 @@ import Blogs from '../pages/shared/Blogs';
 import Contacts from '../pages/shared/Contacts';
 import Protected from './Protected';
 import ServiceDetails from '../pages/others/ServiceDetails';
+import EditReview from '../pages/shared/EditReview';
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
             <MyReviews />
           </Protected>
         ),
+      },
+      {
+        path: '/editreview/:id',
+        element: <EditReview />,
       },
       {
         path: '/blogs',

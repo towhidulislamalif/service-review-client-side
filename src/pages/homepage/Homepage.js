@@ -1,7 +1,6 @@
 import React from 'react';
 import useTitle from '../../hooks/useTitle';
 
-import About from './About';
 import Banner from './Banner';
 import CallToAction from './CallToAction';
 import Pricing from './Pricing';
@@ -13,13 +12,10 @@ function Homepage() {
   return (
     <div className="space-y-8 md:space-y-16 dark:bg-gray-800 dark:text-gray-100">
       {/* banner */}
-      {/* <Banner /> */}
+      <Banner />
 
       {/* services */}
       <Services />
-
-      {/* about */}
-      {/* <About /> */}
 
       {/* pricing */}
       <Pricing />
