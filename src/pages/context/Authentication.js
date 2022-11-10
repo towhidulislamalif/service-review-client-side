@@ -20,7 +20,8 @@ export const AuthenticationContext = createContext();
 function Authentication({ children }) {
   const google = new GoogleAuthProvider();
   const github = new GithubAuthProvider();
-  const [user, setUser] = useState(null);
+
+  const [user, setUser] = useState({});
   const [loader, setLoader] = useState(true);
 
   //   on auth state changed

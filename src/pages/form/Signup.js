@@ -1,12 +1,19 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle';
 import { AuthenticationContext } from '../context/Authentication';
 
 function Signup() {
+  // title
+  useTitle('Signup');
   // use context
   const { signup, profile, googleSignin, githubSignin } = useContext(
     AuthenticationContext
   );
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
 
   const [error, setError] = useState('');
 
@@ -18,7 +25,7 @@ function Signup() {
     const photo = event.target.photourl.value;
     const email = event.target.useremail.value;
     const password = event.target.password.value;
-    console.log(name, email, password);
+    // console.log(name, email, password);
 
     // sign up new users
     signup(email, password)
@@ -27,10 +34,12 @@ function Signup() {
 
         // update a users profile
         profile(name, photo)
-          .then()
+          .then(() => {
+            event.target.reset();
+            navigate(from, { replace: true });
+          })
           .catch((error) => {
             setError(error.message);
-            event.target.reset();
           });
       })
       .catch((error) => {
@@ -45,6 +54,7 @@ function Signup() {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -58,6 +68,7 @@ function Signup() {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         const errorMessage = error.message;

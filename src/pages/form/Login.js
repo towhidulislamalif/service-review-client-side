@@ -1,8 +1,12 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle';
 import { AuthenticationContext } from '../context/Authentication';
 
 function Login() {
+  // title
+  useTitle('Login');
+
   // use context
   const { login, googleSignin, githubSignin } = useContext(
     AuthenticationContext
@@ -58,6 +62,7 @@ function Login() {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -71,6 +76,7 @@ function Login() {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         const errorMessage = error.message;
