@@ -4,9 +4,11 @@ import useTitle from '../../hooks/useTitle';
 import { AuthenticationContext } from '../context/Authentication';
 
 function AddService() {
-  const { user } = useContext(AuthenticationContext);
-
+  // title
   useTitle('Add Services');
+
+  // use context
+  const { user } = useContext(AuthenticationContext);
 
   const add = (e) => {
     e.preventDefault();
@@ -16,7 +18,6 @@ function AddService() {
       price: e.target.price.value,
       desc: e.target.message.value,
     };
-    console.log(service);
 
     fetch('http://localhost:5000/services', {
       method: 'POST',
@@ -29,6 +30,7 @@ function AddService() {
       .then((json) => {
         if (json.success) {
           toast.success(json.message);
+          e.target.reset();
         } else {
           toast.error(json.error);
         }
@@ -36,11 +38,6 @@ function AddService() {
       .catch((error) => {
         toast.error(error.message);
       });
-    // const title = event.target.name.value;
-    // const img = event.target.photo.value;
-    // const price = event.target.price.value;
-    // const desc = event.target.description.value;
-    // console.log(title, img, price, desc);
   };
 
   return (
@@ -70,7 +67,7 @@ function AddService() {
                 name="name"
                 type="text"
                 placeholder="Service name"
-                required=""
+                required
                 className="block w-full p-2 rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-pink-600 bg-gray-100"
               />
             </div>
@@ -83,7 +80,7 @@ function AddService() {
                 name="photo"
                 type="text"
                 placeholder="Service photo"
-                required=""
+                required
                 className="block w-full p-2 rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-pink-600 bg-gray-100"
               />
             </div>
@@ -96,7 +93,7 @@ function AddService() {
                 name="price"
                 type="text"
                 placeholder="Service price"
-                required=""
+                required
                 className="block w-full p-2 rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-pink-600 bg-gray-100"
                 data-temp-mail-org="2"
               />
@@ -110,6 +107,7 @@ function AddService() {
                 name="message"
                 type="text"
                 placeholder="Description..."
+                required
                 className="block w-full p-2 rounded autoexpand focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-pink-600 bg-gray-100"
               ></textarea>
             </div>
