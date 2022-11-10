@@ -12,7 +12,9 @@ function ServiceDetails() {
   const [review, setReview] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/otherreviews?itemId=${data.itemId}`)
+    fetch(
+      `https://b6a11-service-review-server-side-towhidulislamalif.vercel.app/otherreviews?itemId=${data.itemId}`
+    )
       .then((res) => res.json())
       .then((json) => setReview(json));
   }, []);
@@ -35,13 +37,16 @@ function ServiceDetails() {
       message,
     };
     console.log(review);
-    fetch('http://localhost:5000/reviews', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify(review),
-    })
+    fetch(
+      'https://b6a11-service-review-server-side-towhidulislamalif.vercel.app/reviews',
+      {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify(review),
+      }
+    )
       .then((res) => res.json())
       .then((json) => {
         event.target.reset();

@@ -15,7 +15,9 @@ function EditReview() {
   const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews/${id}`)
+    fetch(
+      `https://b6a11-service-review-server-side-towhidulislamalif.vercel.app/reviews/${id}`
+    )
       .then((res) => res.json())
       .then((json) => setMyreview(json.data));
   }, [refresh, id]);
@@ -29,13 +31,16 @@ function EditReview() {
       photo: e.target.photo.value,
       message: e.target.message.value,
     };
-    fetch(`http://localhost:5000/reviews/${id}`, {
-      method: 'PATCH',
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify(update),
-    })
+    fetch(
+      `https://b6a11-service-review-server-side-towhidulislamalif.vercel.app/reviews/${id}`,
+      {
+        method: 'PATCH',
+        headers: {
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify(update),
+      }
+    )
       .then((res) => res.json())
       .then((json) => {
         if (json.success) {

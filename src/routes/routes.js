@@ -35,7 +35,9 @@ const router = createBrowserRouter([
         path: '/servicedetails/:id',
         element: <ServiceDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/services/${params.id}`),
+          fetch(
+            `https://b6a11-service-review-server-side-towhidulislamalif.vercel.app/services/${params.id}`
+          ),
       },
       {
         path: '/addservice',
