@@ -24,7 +24,26 @@ function Login() {
     login(email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        navigate(from, { replace: true });
+        console.log(user);
+
+        const current = {
+          // email: user.email,
+          name: user.displayName,
+        };
+        // get jwt token
+        fetch('http://localhost:5000/jwt', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+          },
+          body: JSON.stringify(current),
+        })
+          .then((res) => res.json())
+          .then((json) => {
+            console.log(json);
+            localStorage.setItem('token', json.token);
+            navigate(from, { replace: true });
+          });
         event.target.reset();
       })
       .catch((error) => {

@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 import { Link } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle';
 
 function ServiceFeed() {
+  useTitle('Service Feed');
   const [servicefeed, setServicefeed] = useState([]);
 
   useEffect(() => {
