@@ -10,7 +10,7 @@ function ServiceFeed() {
 
   useEffect(() => {
     fetch(
-      'https://b6a11-service-review-server-side-zeta.vercel.app/servicefeed'
+      'https://b6a11-service-review-server-side-towhidulislamalif.vercel.app/servicefeed'
     )
       .then((res) => res.json())
       .then((json) => setServicefeed(json.data));

@@ -7,7 +7,9 @@ function Services() {
   const [services, setServices] = useState([]);
 
   useEffect(() => {
-    fetch('https://b6a11-service-review-server-side-zeta.vercel.app/services')
+    fetch(
+      'https://b6a11-service-review-server-side-towhidulislamalif.vercel.app/services'
+    )
       .then((res) => res.json())
       .then((json) => setServices(json.data));
   }, []);
