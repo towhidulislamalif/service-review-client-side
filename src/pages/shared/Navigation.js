@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthenticationContext } from '../context/Authentication';
-import logo from '../../assets/logo/logo192.png';
-
+// navbar logo
+import logo from '../../assets/img/logo/logo.png';
 function Navigation() {
   const { user, signout } = useContext(AuthenticationContext);
 
@@ -14,16 +14,11 @@ function Navigation() {
   };
 
   return (
-    <div className=" dark:bg-gray-800 dark:text-gray-100">
+    <div className="bg-gradient-to-t from-gray-800 to-gray-900">
       <div className="p-6 space-y-8">
         <header className="container flex items-center justify-between h-16 px-4 mx-auto rounded dark:bg-gray-900">
           <Link rel="noopener noreferrer" to="/" aria-label="Homepage">
-            <div className="flex items-center relative">
-              <img className="w-16 object-contain" src={logo} alt="" />
-              <span className="font-serif font-semibold italic text-base text-gray-800 absolute -right-12">
-                Fitney
-              </span>
-            </div>
+            <img src={logo} alt="" />
           </Link>
           <div className="items-center hidden space-x-8 sm:flex">
             <div className="font-semibold italic space-x-4 text-gray-500">
@@ -42,9 +37,6 @@ function Navigation() {
               )}
               <Link rel="noopener noreferrer" to="/blogs">
                 Blogs
-              </Link>
-              <Link rel="noopener noreferrer" to="/contacts">
-                Contacts
               </Link>
             </div>
             {user?.uid ? (

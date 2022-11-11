@@ -3,7 +3,8 @@ import useTitle from '../../hooks/useTitle';
 
 import Banner from './Banner';
 import CallToAction from './CallToAction';
-import Pricing from './Pricing';
+import Contact from './Contact';
+
 import Services from './Services';
 import Testimonial from './Testimonial';
 
@@ -17,14 +18,14 @@ function Homepage() {
       {/* services */}
       <Services />
 
-      {/* pricing */}
-      <Pricing />
-
       {/* testimonial */}
       <Testimonial />
 
       {/* call to action */}
       <CallToAction />
+
+      {/* contact */}
+      <Contact />
     </div>
   );
 }

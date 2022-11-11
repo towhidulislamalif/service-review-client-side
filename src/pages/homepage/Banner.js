@@ -1,17 +1,24 @@
 import React from 'react';
+// hero image
+import hero from '../../assets/img/hero/h1_hero.png';
 
 function Banner() {
   return (
     <section>
-      <div className="bg-gradient-to-tr from-gray-50 to-pink-600">
-        <div className="container flex flex-col items-center px-4 py-16 pb-24 mx-auto text-center lg:pb-56 md:py-32 md:px-10 lg:px-32 text-gray-900">
-          <h1 className="text-5xl font-bold leading-none sm:text-6xl xl:max-w-3xl text-gray-50">
-            GET TRAINED BE EMPOWERED BOOK A SESSION TODAY
-          </h1>
-          <p className="mt-6 mb-8 text-lg sm:mb-12 xl:max-w-3xl text-gray-50">
-            Cupiditate minima voluptate temporibus quia? Architecto beatae esse
-            ab amet vero eaque explicabo!
-          </p>
+      <div>
+        <div className="relative">
+          <img src={hero} alt="" className="w-full object-contain" />
+          <div className="absolute top-12 md:top-24 xl:top-80 left-10 md:left-20 xl:left-60 w-1/2 space-y-1 md:space-y-3 xl:space-y-6">
+            <span className="font-bold uppercase text-base md:text-2xl xl:text-3xl text-rose-800">
+              with patrick potter
+            </span>
+            <h1 className="font-semibold text-lg md:text-4xl xl:text-5xl w-10/12 text-gray-100">
+              Build Perfect body Shape for good and Healthy life.
+            </h1>
+            <div className="font-semibold  px-2 py-2 inline-block text-center   bg-rose-600 text-gray-100">
+              <button>became a member</button>
+            </div>
+          </div>
         </div>
       </div>
     </section>

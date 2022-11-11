@@ -22,14 +22,15 @@ function Services() {
     <section className=" bg-gray-100 text-gray-800">
       <div className="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">
         <div className="space-y-2 text-center">
-          <h2 className="text-3xl font-bold">Explore our services</h2>
+          <h2 className="text-3xl font-bold text-rose-700">
+            OUR SERVICES FOR YOU
+          </h2>
           <p className="font-serif text-sm text-gray-600">
-            Qualisque erroribus usu at, duo te agam soluta mucius.
+            PUSH YOUR LIMITS FORWARD WE OFFER TO YOU
           </p>
         </div>
         <div className="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => {
-            console.log(service);
             const { _id, desc, img, price, title } = service;
             return (
               <div
@@ -41,7 +42,7 @@ function Services() {
                   <PhotoView src={img}>
                     <img
                       alt=""
-                      className="object-cover w-full rounded h-44 bg-gray-500"
+                      className="object-cover w-full  h-44 bg-gray-500"
                       src={img}
                     />
                   </PhotoView>
@@ -59,7 +60,7 @@ function Services() {
                   <Link to={`/servicedetails/${_id}`}>
                     <button
                       type="button"
-                      className="px-4 py-2 font-semibold rounded bg-pink-600 text-gray-100"
+                      className="font-semibold italic px-4 py-2  bg-rose-600 text-gray-100"
                     >
                       View Details
                     </button>

@@ -31,10 +31,9 @@ function Login() {
         console.log(user);
 
         const current = {
-          // email: user.email,
           name: user.displayName,
         };
-        // get jwt token
+
         fetch(
           'https://b6a11-service-review-server-side-towhidulislamalif.vercel.app/jwt',
           {
