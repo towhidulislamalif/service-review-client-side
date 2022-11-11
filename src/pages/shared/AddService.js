@@ -19,16 +19,13 @@ function AddService() {
       desc: e.target.message.value,
     };
 
-    fetch(
-      'https://b6a11-service-review-server-side-towhidulislamalif.vercel.app/services',
-      {
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json',
-        },
-        body: JSON.stringify(service),
-      }
-    )
+    fetch('https://b6a11-service-review-server-side-zeta.vercel.app/services', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(service),
+    })
       .then((res) => res.json())
       .then((json) => {
         if (json.success) {

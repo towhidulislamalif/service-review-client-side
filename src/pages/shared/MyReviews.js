@@ -16,7 +16,7 @@ function MyReviews() {
 
   useEffect(() => {
     fetch(
-      `https://b6a11-service-review-server-side-towhidulislamalif.vercel.app/reviews?name=${user?.displayName} `,
+      `https://b6a11-service-review-server-side-zeta.vercel.app/reviews?name=${user?.displayName} `,
       {
         headers: {
           authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -31,7 +31,7 @@ function MyReviews() {
 
   const deleteReview = (id) => {
     fetch(
-      `https://b6a11-service-review-server-side-towhidulislamalif.vercel.app/reviews/${id}`,
+      `https://b6a11-service-review-server-side-zeta.vercel.app/reviews/${id}`,
       {
         method: 'DELETE',
       }

@@ -16,7 +16,7 @@ function EditReview() {
 
   useEffect(() => {
     fetch(
-      `https://b6a11-service-review-server-side-towhidulislamalif.vercel.app/reviews/${id}`
+      `https://b6a11-service-review-server-side-zeta.vercel.app/reviews/${id}`
     )
       .then((res) => res.json())
       .then((json) => setMyreview(json.data));
@@ -32,7 +32,7 @@ function EditReview() {
       message: e.target.message.value,
     };
     fetch(
-      `https://b6a11-service-review-server-side-towhidulislamalif.vercel.app/reviews/${id}`,
+      `https://b6a11-service-review-server-side-zeta.vercel.app/reviews/${id}`,
       {
         method: 'PATCH',
         headers: {

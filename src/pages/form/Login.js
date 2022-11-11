@@ -34,16 +34,13 @@ function Login() {
           name: user.displayName,
         };
 
-        fetch(
-          'https://b6a11-service-review-server-side-towhidulislamalif.vercel.app/jwt',
-          {
-            method: 'POST',
-            headers: {
-              'content-type': 'application/json',
-            },
-            body: JSON.stringify(current),
-          }
-        )
+        fetch('https://b6a11-service-review-server-side-zeta.vercel.app/jwt', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+          },
+          body: JSON.stringify(current),
+        })
           .then((res) => res.json())
           .then((json) => {
             console.log(json);
