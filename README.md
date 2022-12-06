@@ -1,7 +1,7 @@
 # I'm Towhidul from Bangladesh, I do content on Design and Development. I really enjoy learning languages and frameworks like HTML, CSS, Bootstrap, Tailwind and Javascript, Reactjs, Nodejs, Expressjs and Mongodb.
 
 ## FITNESS
-- It is an online fitness service related app.
+- Online Personal Fitness Trainer Or Service Review
 
 ### Overview
 
