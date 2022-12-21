@@ -9,7 +9,9 @@ function ServiceFeed() {
   const [servicefeed, setServicefeed] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/servicefeed')
+    fetch(
+      'https://b6a11-service-review-server-side-towhidulislamalif.vercel.app/servicefeed'
+    )
       .then((res) => res.json())
       .then((json) => setServicefeed(json.data));
   }, []);

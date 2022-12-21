@@ -14,19 +14,25 @@ function MyReviews() {
   const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?name=${user?.displayName} `, {
-      headers: {
-        authorization: `Bearer ${localStorage.getItem('token')}`,
-      },
-    })
+    fetch(
+      `https://b6a11-service-review-server-side-towhidulislamalif.vercel.app/reviews?name=${user?.displayName} `,
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((json) => setMyreviews(json.data));
   }, [user?.displayName, refresh]);
 
   const deleteReview = (id) => {
-    fetch(`http://localhost:5000/reviews/${id}`, {
-      method: 'DELETE',
-    })
+    fetch(
+      `https://b6a11-service-review-server-side-towhidulislamalif.vercel.app/reviews/${id}`,
+      {
+        method: 'DELETE',
+      }
+    )
       .then((res) => res.json())
       .then((json) => {
         if (json.success) {

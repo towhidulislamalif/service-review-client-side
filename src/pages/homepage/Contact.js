@@ -1,7 +1,16 @@
 import React from 'react';
 import contact from '../../assets/img/gallery/contact_form.png';
-
+import { toast } from 'react-toastify';
 function Contact() {
+  const handlecontact = (e) => {
+    e.preventDefault();
+    const client = e.target.client.value;
+    const email = e.target.email.value;
+    const message = e.target.message.value;
+    console.log(client, email, message);
+    toast.success('Email send!');
+    e.target.reset();
+  };
   return (
     <section className="pb-16">
       <div className="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x">
@@ -15,6 +24,7 @@ function Contact() {
           </div>
         </div>
         <form
+          onSubmit={handlecontact}
           noValidate=""
           className="flex flex-col py-6 space-y-6 md:py-0 md:px-6 ng-untouched ng-pristine ng-valid"
         >
