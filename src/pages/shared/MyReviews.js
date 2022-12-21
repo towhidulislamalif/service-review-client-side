@@ -7,35 +7,26 @@ import { AuthenticationContext } from '../context/Authentication';
 function MyReviews() {
   // title
   useTitle('My Reviews');
-
+  const navigate = useNavigate();
   // use context
   const { user } = useContext(AuthenticationContext);
-
   const [myreviews, setMyreviews] = useState([]);
   const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
-    fetch(
-      `https://b6a11-service-review-server-side-towhidulislamalif.vercel.app/reviews?name=${user?.displayName} `,
-      {
-        headers: {
-          authorization: `Bearer ${localStorage.getItem('token')}`,
-        },
-      }
-    )
+    fetch(`http://localhost:5000/reviews?name=${user?.displayName} `, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    })
       .then((res) => res.json())
       .then((json) => setMyreviews(json.data));
   }, [user?.displayName, refresh]);
 
-  // console.log(myreviews);
-
   const deleteReview = (id) => {
-    fetch(
-      `https://b6a11-service-review-server-side-towhidulislamalif.vercel.app/reviews/${id}`,
-      {
-        method: 'DELETE',
-      }
-    )
+    fetch(`http://localhost:5000/reviews/${id}`, {
+      method: 'DELETE',
+    })
       .then((res) => res.json())
       .then((json) => {
         if (json.success) {
@@ -47,7 +38,7 @@ function MyReviews() {
       })
       .catch((error) => toast.error(error.message));
   };
-  const navigate = useNavigate();
+
   const editReview = (id) => {
     navigate(`/editreview/${id}`);
   };
@@ -55,14 +46,13 @@ function MyReviews() {
   return (
     <>
       {myreviews.length > 0 ? (
-        <div className="my-6 space-y-6">
+        <div className="min-h-screen my-16 space-y-6">
           {myreviews.map((myreview) => {
             const { _id, message, photo, reviewer, service_name } = myreview;
-            console.log(myreview);
             return (
               <div
                 key={_id}
-                className="container flex flex-col w-full max-w-3xl p-6 mx-auto divide-y rounded-md divide-gray-300 bg-gray-50 text-gray-800"
+                className="container flex flex-col w-full max-w-5xl p-6 mx-auto divide-y rounded-md divide-gray-300 bg-gray-50 text-gray-800"
               >
                 <div className="flex justify-between p-4">
                   <div className="flex space-x-4">
@@ -70,7 +60,7 @@ function MyReviews() {
                       <img
                         src={photo}
                         alt=""
-                        className="object-cover w-12 h-12 rounded-full bg-gray-500"
+                        className="object-cover w-12 h-12 rounded-full"
                       />
                     </div>
                     <div>
@@ -78,7 +68,7 @@ function MyReviews() {
                       <span className="text-xs text-gray-600">2 days ago</span>
                     </div>
                   </div>
-                  <div className="flex items-center space-x-2 text-yellow-500">
+                  <div className="flex items-center space-x-2 text-orange-400">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 512 512"
@@ -90,16 +80,16 @@ function MyReviews() {
                   </div>
                 </div>
                 <div className="p-4 space-y-2 text-sm text-gray-600">
-                  <p className="font-semibold italic text-lg text-gray-600">
+                  <p className="font-bold text-lg text-rose-600">
                     {service_name}
                   </p>
-                  <p className="font-semibold text-base">{message}</p>
+                  <p className="text-sm text-gray-600">{message}</p>
                 </div>
-                <div className="flex gap-4 text-sm py-4 divide-x">
+                <div className="flex gap-4 px-4 text-sm py-4 divide-x">
                   <button
                     onClick={() => deleteReview(_id)}
                     type="button"
-                    className="flex items-center px-2 py-1 pl-0 space-x-1 font-medium italic text-sm bg-gray-600 text-gray-100"
+                    className="flex items-center px-2 py-1 space-x-1 text-sm bg-red-600 text-white"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -117,7 +107,7 @@ function MyReviews() {
                   <button
                     onClick={() => editReview(_id)}
                     type="button"
-                    className="flex items-center px-2 py-1 pl-0 space-x-1 font-medium italic text-sm bg-pink-600 text-gray-100"
+                    className="flex items-center px-2 py-1 space-x-1 text-sm bg-pink-600 text-white"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

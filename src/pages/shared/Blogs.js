@@ -5,20 +5,20 @@ function Blogs() {
   // title
   useTitle('Blogs');
   return (
-    <div className="">
-      <div className="container max-w-5xl px-10 py-6 mx-auto my-6 rounded-lg shadow-sm space-y-12 bg-gray-50">
+    <div className="my-16">
+      <div className="container max-w-5xl px-10 py-6 mx-auto my-6 rounded-lg shadow-sm space-y-12">
         <div className="">
           <h2 className="text-2xl font-bold mb-4 hover:underline">
             Difference between Node.JS and Javascript
           </h2>
-          <span className="font-semibold italic text-sm bg-pink-600 text-gray-100 ">
+          <span className="font-semibold italic text-sm text-rose-600">
             NodeJs
           </span>
           <p className="font-semibold italic text-sm text-gray-600">
             NodeJS is a cross-platform and opensource Javascript runtime
             environment that allows the javascript to be run on the server-side.
           </p>
-          <span className="font-semibold italic text-sm bg-pink-600 text-gray-100 ">
+          <span className="font-semibold italic text-sm text-rose-600">
             JavaScript
           </span>
           <p className="font-semibold italic text-sm text-gray-600">
@@ -31,7 +31,7 @@ function Blogs() {
           <h2 className="text-2xl font-bold mb-4 hover:underline">
             How NodeJS handle multiple client requests?
           </h2>
-          <span className="font-semibold italic text-sm bg-pink-600 text-gray-100 ">
+          <span className="font-semibold italic text-sm text-rose-600">
             NodeJs
           </span>
           <p className="font-semibold italic text-sm text-gray-600">
@@ -45,7 +45,7 @@ function Blogs() {
           <h2 className="text-2xl font-bold mb-4 hover:underline">
             Difference between SQL and NoSQL
           </h2>
-          <span className="font-semibold italic text-sm bg-pink-600 text-gray-100 ">
+          <span className="font-semibold italic text-sm text-rose-600">
             SQL
           </span>
           <ul className="font-semibold italic text-sm text-gray-600">
@@ -56,7 +56,7 @@ function Blogs() {
             </li>
             <li>These databases are best suited for complex queries</li>
           </ul>
-          <span className="font-semibold italic text-sm bg-pink-600 text-gray-100 ">
+          <span className="font-semibold italic text-sm text-rose-600">
             NoSQL
           </span>
           <ul className="font-semibold italic text-sm text-gray-600">
@@ -72,7 +72,7 @@ function Blogs() {
           <h2 className="text-2xl font-bold mb-4 hover:underline">
             What is JWT ? How JWT (JSON Web Token) authentication works?
           </h2>
-          <span className="font-semibold italic text-sm bg-pink-600 text-gray-100 ">
+          <span className="font-semibold italic text-sm text-rose-600">
             JSON Web Token
           </span>
           <p className="font-semibold italic text-sm text-gray-600">

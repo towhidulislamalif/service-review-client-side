@@ -27,16 +27,13 @@ function ServiceDetails() {
       message,
     };
 
-    fetch(
-      'https://b6a11-service-review-server-side-towhidulislamalif.vercel.app/reviews',
-      {
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json',
-        },
-        body: JSON.stringify(review),
-      }
-    )
+    fetch('http://localhost:5000/reviews', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(review),
+    })
       .then((res) => res.json())
       .then((json) => {
         event.target.reset();
@@ -45,29 +42,23 @@ function ServiceDetails() {
   };
 
   return (
-    <div>
+    <div className="my-16">
       <div className="flex justify-center">
-        <div className="max-w-4xl p-4 shadow-md bg-gray-50 text-gray-800">
+        <div className="container p-4 shadow bg-gray-50">
           <div className="space-y-4">
             <div className="space-y-2">
               <img
                 src={data.img}
                 alt=""
-                className="block object-cover object-center w-full rounded-md h-72 bg-gray-500"
+                className="block object-cover w-full h-96"
               />
-              <div className="flex items-center text-xs">
-                <span className="font-medium italic text-base text-gray-600">
-                  ${data.price}
-                </span>
+              <div className="flex items-center pt-6 text-xs">
+                <span className="text-xl">${data.price}</span>
               </div>
             </div>
             <div className="space-y-2">
-              <h3 className="text-xl font-semibold text-pink-600">
-                {data.title}
-              </h3>
-              <p className="font-medium italic text-sm text-gray-600">
-                {data.desc}
-              </p>
+              <h3 className="text-xl font-bold text-rose-600">{data.title}</h3>
+              <p className="text-sm text-gray-600">{data.desc}</p>
             </div>
           </div>
         </div>
@@ -75,8 +66,8 @@ function ServiceDetails() {
 
       {/* others review */}
 
-      <div className="container w-full  mx-auto my-12 ">
-        <h2 className="font-semibold italic text-3xl text-center text-gray-600">
+      <div className="container w-full mx-auto my-16 ">
+        <h2 className="font-semibold italic text-3xl text-center text-gray-800">
           Other users reviews
         </h2>
         <div className="my-6 space-y-6">
@@ -156,13 +147,12 @@ function ServiceDetails() {
       </div>
 
       {/* add your review */}
-
       <section className="p-6 text-gray-800">
         {user?.uid ? (
           <form
             onSubmit={addReview}
             noValidate=""
-            className="container w-full max-w-4xl p-8 mx-auto space-y-6 rounded-md shadow bg-gray-50 ng-untouched ng-pristine ng-valid"
+            className="container w-full max-w-3xl p-8 mx-auto space-y-6 rounded shadow bg-gray-50 ng-untouched ng-pristine ng-valid"
           >
             <h2 className="w-full text-3xl font-bold leading-tight">
               Add your review
@@ -179,7 +169,7 @@ function ServiceDetails() {
                 required
                 defaultValue={user?.displayName}
                 readOnly
-                className="block w-full p-2 rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-pink-600 bg-gray-100"
+                className="block w-full p-2 rounded bg-gray-100"
               />
             </div>
             <div>
@@ -194,7 +184,7 @@ function ServiceDetails() {
                 required
                 defaultValue={user?.photoURL}
                 readOnly
-                className="block w-full p-2 rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-pink-600 bg-gray-100"
+                className="block w-full p-2 rounded bg-gray-100"
                 data-temp-mail-org="2"
               />
             </div>
@@ -208,13 +198,13 @@ function ServiceDetails() {
                 type="text"
                 placeholder="Message..."
                 required
-                className="block w-full p-2 rounded autoexpand focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-pink-600 bg-gray-100"
+                className="block w-full p-2 rounded autoexpand bg-gray-100"
               ></textarea>
             </div>
             <div>
               <button
                 type="submit"
-                className="w-full px-4 py-2 font-bold rounded shadow focus:outline-none focus:ring hover:ring focus:ring-opacity-50 bg-pink-600 focus:ring-pink-600 hover:ring-pink-600 text-gray-50"
+                className="w-full px-4 py-2 font-bold shadow bg-rose-600 text-white"
               >
                 Send
               </button>
@@ -224,7 +214,7 @@ function ServiceDetails() {
           <>
             <div className="flex justify-center">
               <div className="flex flex-col items-center">
-                <h2 className="font-semibold italic text-4xl text-red-600">
+                <h2 className="text-4xl text-red-600">
                   Please login to add a review
                 </h2>
                 <Link to="/login">

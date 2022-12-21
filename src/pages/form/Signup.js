@@ -25,7 +25,6 @@ function Signup() {
     const photo = event.target.photourl.value;
     const email = event.target.useremail.value;
     const password = event.target.password.value;
-    // console.log(name, email, password);
 
     // sign up new users
     signup(email, password)
@@ -77,11 +76,9 @@ function Signup() {
   };
 
   return (
-    <div className="flex justify-center">
-      <div className="w-full max-w-md font-serif p-8 space-y-3 rounded-xl bg-gray-50 text-gray-800">
-        <h1 className="text-3xl font-semibold italic mb-4">
-          Create a new account
-        </h1>
+    <div className="flex justify-center my-48">
+      <div className="w-full max-w-xl p-8 space-y-3 rounded-xl bg-gray-50">
+        <h1 className="text-3xl font-bold mb-4">Create a new account</h1>
         <form
           onSubmit={formSubmit}
           noValidate=""
@@ -98,7 +95,7 @@ function Signup() {
               id="username"
               placeholder="Username"
               required
-              className="w-full outline-none px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-pink-600"
+              className="w-full px-4 py-3 rounded border-gray-300 bg-gray-100"
             />
           </div>
           <div className="space-y-1 text-sm">
@@ -111,7 +108,7 @@ function Signup() {
               id="photourl"
               placeholder="Photo URL"
               required
-              className="w-full outline-none px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-pink-600"
+              className="w-full px-4 py-3 rounded border-gray-300 bg-gray-100"
             />
           </div>
           <div className="space-y-1 text-sm">
@@ -124,7 +121,7 @@ function Signup() {
               id="useremail"
               placeholder="Email or username"
               required
-              className="w-full outline-none px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-pink-600"
+              className="w-full px-4 py-3 rounded border-gray-300 bg-gray-100"
             />
           </div>
           <div className="space-y-1 text-sm">
@@ -137,7 +134,7 @@ function Signup() {
               id="password"
               placeholder="Password"
               required
-              className="w-full outline-none px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-pink-600"
+              className="w-full px-4 py-3 rounded border-gray-300 bg-gray-100"
             />
             <div className="flex justify-between items-center text-sm text-gray-600">
               <p className="text-red-400">{error}</p>

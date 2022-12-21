@@ -9,9 +9,7 @@ function ServiceFeed() {
   const [servicefeed, setServicefeed] = useState([]);
 
   useEffect(() => {
-    fetch(
-      'https://b6a11-service-review-server-side-towhidulislamalif.vercel.app/servicefeed'
-    )
+    fetch('http://localhost:5000/servicefeed')
       .then((res) => res.json())
       .then((json) => setServicefeed(json.data));
   }, []);
@@ -21,12 +19,12 @@ function ServiceFeed() {
   };
 
   return (
-    <section className="py-6 sm:py-12 bg-gray-100 text-gray-800">
-      <div className="container p-6 mx-auto space-y-8">
+    <section className="py-6 sm:py-12 bg-gray-100 text-gray-900">
+      <div className="container p-4 mx-auto space-y-8">
         <div className="space-y-2 text-center">
           <h2 className="text-3xl font-bold">Explore our services</h2>
-          <p className="font-serif text-sm text-gray-600">
-            Qualisque erroribus usu at, duo te agam soluta mucius.
+          <p className="text-sm text-gray-600">
+            Authoritatively integrate highly efficient alignments with.
           </p>
         </div>
         <div className="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
@@ -42,7 +40,7 @@ function ServiceFeed() {
                     <PhotoView src={img}>
                       <img
                         alt=""
-                        className="object-cover w-full h-52 bg-gray-500"
+                        className="object-cover w-full h-52"
                         src={img}
                       />
                     </PhotoView>
@@ -51,7 +49,7 @@ function ServiceFeed() {
                 <div className="flex flex-col flex-1 p-6">
                   <p
                     rel="noopener noreferrer"
-                    className="font-medium italic text-xs tracking-wider uppercase hover:underline text-pink-600"
+                    className="font-medium text-xs tracking-wider uppercase hover:underline text-rose-600"
                   >
                     ${price}
                   </p>
@@ -63,7 +61,7 @@ function ServiceFeed() {
                     <Link to={`/servicedetails/${_id}`}>
                       <button
                         type="button"
-                        className="px-4 py-2 font-semibold rounded bg-pink-600 text-gray-100"
+                        className="px-4 py-2 font-semibold rounded bg-rose-600 text-gray-100"
                       >
                         View Details
                       </button>

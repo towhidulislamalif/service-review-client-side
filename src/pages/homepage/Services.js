@@ -7,9 +7,7 @@ function Services() {
   const [services, setServices] = useState([]);
 
   useEffect(() => {
-    fetch(
-      'https://b6a11-service-review-server-side-towhidulislamalif.vercel.app/services'
-    )
+    fetch('http://localhost:5000/services')
       .then((res) => res.json())
       .then((json) => setServices(json.data));
   }, []);
@@ -19,13 +17,13 @@ function Services() {
   };
 
   return (
-    <section className=" bg-gray-100 text-gray-800">
+    <section className="my-16">
       <div className="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">
         <div className="space-y-2 text-center">
-          <h2 className="text-3xl font-bold text-rose-700">
+          <h2 className="text-xl sm:text-3xl font-bold text-red-600">
             OUR SERVICES FOR YOU
           </h2>
-          <p className="font-serif text-sm text-gray-600">
+          <p className="text-sm text-gray-800">
             PUSH YOUR LIMITS FORWARD WE OFFER TO YOU
           </p>
         </div>
@@ -35,32 +33,29 @@ function Services() {
             return (
               <div
                 key={_id}
-                rel="noopener noreferrer"
                 className="max-w-sm mx-auto group hover:no-underline focus:no-underline bg-gray-50"
               >
                 <PhotoProvider>
                   <PhotoView src={img}>
                     <img
                       alt=""
-                      className="object-cover w-full  h-44 bg-gray-500"
+                      className="object-cover w-full h-44"
                       src={img}
                     />
                   </PhotoView>
                 </PhotoProvider>
                 <div className="p-6 space-y-2">
-                  <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">
+                  <h3 className="font-bold text-2xl group-hover:underline group-focus:underline">
                     {title}
                   </h3>
-                  <span className="font-medium italic text-base text-gray-600">
-                    ${price}
-                  </span>
-                  <p className="font-normal  pb-4 text-sm">
+                  <span className="text-base">${price}</span>
+                  <p className="pb-4 text-sm text-gray-600">
                     {truncate(desc, 100)}
                   </p>
                   <Link to={`/servicedetails/${_id}`}>
                     <button
                       type="button"
-                      className="font-semibold italic px-4 py-2  bg-rose-600 text-gray-100"
+                      className="font-semibold italic p-1 sm:px-4 sm:py-2  bg-red-600 text-white"
                     >
                       View Details
                     </button>
@@ -70,11 +65,11 @@ function Services() {
             );
           })}
         </div>
-        <div className="flex justify-center">
+        <div className="flex justify-center pt-4">
           <Link to="/servicefeed">
             <button
               type="button"
-              className="px-6 py-3 text-sm rounded-md hover:underline bg-gray-50 text-gray-600"
+              className="px-4 py-2 sm:px-6 sm:py-3 text-sm hover:underline bg-red-600 text-white"
             >
               Load more services...
             </button>

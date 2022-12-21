@@ -6,18 +6,16 @@ import { AuthenticationContext } from '../context/Authentication';
 function EditReview() {
   const router = useParams();
   const { id } = router;
+  const navigate = useNavigate();
 
   // use context
   const { user } = useContext(AuthenticationContext);
-  const navigate = useNavigate();
 
   const [myreview, setMyreview] = useState([]);
   const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
-    fetch(
-      `https://b6a11-service-review-server-side-towhidulislamalif.vercel.app/reviews/${id}`
-    )
+    fetch(`http://localhost:5000/reviews/${id}`)
       .then((res) => res.json())
       .then((json) => setMyreview(json.data));
   }, [refresh, id]);
@@ -31,16 +29,13 @@ function EditReview() {
       photo: e.target.photo.value,
       message: e.target.message.value,
     };
-    fetch(
-      `https://b6a11-service-review-server-side-towhidulislamalif.vercel.app/reviews/${id}`,
-      {
-        method: 'PATCH',
-        headers: {
-          'content-type': 'application/json',
-        },
-        body: JSON.stringify(update),
-      }
-    )
+    fetch(`http://localhost:5000/reviews/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(update),
+    })
       .then((res) => res.json())
       .then((json) => {
         if (json.success) {
@@ -54,7 +49,7 @@ function EditReview() {
   };
 
   return (
-    <section className="p-6 text-gray-800">
+    <section className="min-h-screen flex items-center p-6">
       <form
         onSubmit={formSubmit}
         noValidate=""
@@ -74,8 +69,8 @@ function EditReview() {
             placeholder="Full name"
             required
             defaultValue={myreview?.reviewer}
-            // readOnly
-            className="block w-full p-2 rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-pink-600 bg-gray-100"
+            readOnly
+            className="block w-full p-2 rounded"
           />
         </div>
         <div>
@@ -89,8 +84,8 @@ function EditReview() {
             placeholder="Photo Url"
             required
             defaultValue={myreview?.photo}
-            // readOnly
-            className="block w-full p-2 rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-pink-600 bg-gray-100"
+            readOnly
+            className="block w-full p-2 rounded"
             data-temp-mail-org="2"
           />
         </div>
@@ -111,7 +106,7 @@ function EditReview() {
         <div>
           <button
             type="submit"
-            className="w-full px-4 py-2 font-bold rounded shadow focus:outline-none focus:ring hover:ring focus:ring-opacity-50 bg-pink-600 focus:ring-pink-600 hover:ring-pink-600 text-gray-50"
+            className="w-full px-4 py-2 rounded shadow bg-rose-600 text-white"
           >
             Send
           </button>

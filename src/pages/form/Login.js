@@ -34,16 +34,13 @@ function Login() {
           name: user.displayName,
         };
 
-        fetch(
-          'https://b6a11-service-review-server-side-towhidulislamalif.vercel.app/jwt',
-          {
-            method: 'POST',
-            headers: {
-              'content-type': 'application/json',
-            },
-            body: JSON.stringify(current),
-          }
-        )
+        fetch('http://localhost:5000/jwt', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+          },
+          body: JSON.stringify(current),
+        })
           .then((res) => res.json())
           .then((json) => {
             console.log(json);
@@ -86,11 +83,9 @@ function Login() {
       });
   };
   return (
-    <div className="flex justify-center">
-      <div className="w-full max-w-md font-serif p-8 space-y-3 rounded-xl bg-gray-50 text-gray-800">
-        <h1 className="text-3xl font-semibold italic mb-4">
-          Login to your account
-        </h1>
+    <div className="flex justify-center items-center my-60">
+      <div className="w-full max-w-md font-serif p-8 space-y-3 rounded-xl bg-gray-50">
+        <h1 className="text-3xl font-bold mb-4">Login to your account</h1>
         <form
           onSubmit={formSubmit}
           noValidate=""
@@ -107,7 +102,7 @@ function Login() {
               id="useremail"
               placeholder="Email or username"
               required
-              className="w-full outline-none px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-pink-600"
+              className="w-full px-4 py-3 rounded border-gray-300 bg-gray-100 text-gray-900"
             />
           </div>
           <div className="space-y-1 text-sm">
@@ -120,16 +115,13 @@ function Login() {
               id="password"
               placeholder="Password"
               required
-              className="w-full outline-none px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-pink-600"
+              className="w-full px-4 py-3 rounded border-gray-300 bg-gray-100 text-gray-900"
             />
             <div className="flex justify-between  text-xs text-gray-600">
               <p className="text-red-400">{error}</p>
-              <p rel="noopener noreferrer" href="#">
-                Forgot Password?
-              </p>
             </div>
           </div>
-          <button className="block w-full p-3 text-center rounded-sm text-gray-50 bg-pink-700">
+          <button className="block w-full p-3 text-center  text-gray-50 bg-rose-600">
             Log in
           </button>
         </form>
